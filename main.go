@@ -14,9 +14,11 @@ func main() {
 	l := log.New(os.Stdout, "product-api", log.LstdFlags)
 	hh := handlers.NewHello(l)
 	gh := handlers.NewGoodBye(l)
+	ph := handlers.NewProducts(l)
 	sm := http.NewServeMux()
 	sm.Handle("/", hh)
 	sm.Handle("/good-bye", gh)
+	sm.Handle("/product-api", ph)
 	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
 	// })
